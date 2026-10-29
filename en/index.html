@@ -10,6 +10,9 @@
 <link rel="alternate" hreflang="en" href="https://ermantemiz.ch/en/">
 <link rel="alternate" hreflang="tr" href="https://ermantemiz.ch/tr/">
 <link rel="alternate" hreflang="x-default" href="https://ermantemiz.ch/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="../fonts/fonts.css">
 <style>
 /* Layout: engineering consultancy. A deep petrol hero carrying a live P&ID line drawing; below, calm white sections on a strict 12-col grid, hairline rules, mono tag codes as in plant documentation. */
@@ -60,6 +63,7 @@ header .wrap{display:flex;align-items:center;gap:24px;padding-block:14px}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;margin-right:auto}
 .mono-mark{width:40px;height:40px;border:1.5px solid var(--band-ink);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-stretch:75%;font-size:1.05rem;letter-spacing:.02em;position:relative}
 .mono-mark::after{content:"";position:absolute;right:-1.5px;bottom:-1.5px;width:10px;height:10px;background:var(--signal)}
+.logo-img{width:40px;height:40px;display:block;flex:none;outline:1px solid var(--band-line)}
 .logo-text b{display:block;font-family:var(--display);font-weight:700;font-stretch:85%;font-size:1.05rem;letter-spacing:.01em;line-height:1.1}
 .logo-text span{display:block;font-family:var(--mono);font-size:.68rem;color:var(--band-muted);letter-spacing:.08em;text-transform:uppercase}
 nav{display:flex;gap:22px}
@@ -246,7 +250,7 @@ footer{background:var(--surface);border-top:1px solid var(--line)}
 <header>
   <div class="wrap">
     <a class="logo" href="#start" aria-label="Erman Temiz, back to top">
-      <span class="mono-mark">ET</span>
+      <img class="logo-img" src="../img/logo-et-160.png" width="40" height="40" alt="">
       <span class="logo-text"><b>Erman Temiz</b><span>Project Management · Interim</span></span>
     </a>
     <nav aria-label="Main navigation">
