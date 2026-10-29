@@ -1,2 +1,5 @@
 # ermantemiz.ch
-Website Erman Temiz – Projektleitung
+
+Website von Erman Temiz – Interim-Projektleitung, Projektkoordination und Terminplanung.
+
+Live: https://ermantemiz.ch
