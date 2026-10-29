@@ -27,7 +27,7 @@ for lang, idx in LANGS.items():
     s = s.replace(' aria-current="page">DE</a>', '>DE</a>', 1)
     s = s.replace(f'hreflang="{lang}">{lang.upper()}</a>', f'hreflang="{lang}" aria-current="page">{lang.upper()}</a>', 1)
     # Bildpfade eine Ebene höher
-    s = s.replace('src="img/', 'src="../img/')
+    s = s.replace('src="img/', 'src="../img/').replace('url(img/', 'url(../img/')
     out = os.path.join(ROOT, lang, 'index.html')
     os.makedirs(os.path.dirname(out), exist_ok=True)
     open(out, 'w', encoding='utf-8').write(s)
