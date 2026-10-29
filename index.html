@@ -545,6 +545,7 @@ footer{background:var(--surface);border-top:1px solid var(--line)}
       <div>
         <div class="ccard">
           <div class="crow"><span class="k">E-Mail</span><span class="v" id="mail"><a href="mailto:kontakt@ermantemiz.ch">kontakt@ermantemiz.ch</a></span><button class="copy" type="button" data-copy="mail">Kopieren</button></div>
+          <div class="crow"><span class="k">Telefon</span><span class="v" id="tel"><a href="tel:+41766358114">+41 76 635 81 14</a></span><button class="copy" type="button" data-copy="tel">Kopieren</button></div>
           <div class="crow"><span class="k">LinkedIn</span><span class="v"><a href="https://www.linkedin.com/in/erman-temiz/" target="_blank" rel="noopener">linkedin.com/in/erman-temiz</a></span><a class="copy" href="https://www.linkedin.com/in/erman-temiz/" target="_blank" rel="noopener" style="text-decoration:none">Profil</a></div>
           <div class="crow"><span class="k">Region</span><span class="v">Zürich · Aargau · Schweiz</span><span></span></div>
         </div>
@@ -560,6 +561,7 @@ footer{background:var(--surface);border-top:1px solid var(--line)}
       <h4>Impressum</h4>
       <p>Erman Temiz<br>Projektleitung &amp; Interim Management<br>Schweiz</p>
       <p>E-Mail: <a href="mailto:kontakt@ermantemiz.ch">kontakt@ermantemiz.ch</a></p>
+      <p>Telefon: <a href="tel:+41766358114">+41 76 635 81 14</a></p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/erman-temiz/" target="_blank" rel="noopener">linkedin.com/in/erman-temiz</a></p>
     </div>
     <div id="datenschutz">
@@ -581,7 +583,7 @@ document.querySelectorAll('[data-copy]').forEach(function(b){
   b.addEventListener('click',function(){
     var el=document.getElementById(b.dataset.copy),note=document.getElementById('copyNote');
     function fb(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);note.textContent='Markiert. Mit Strg+C kopieren.';}
-    try{navigator.clipboard.writeText(el.textContent).then(function(){note.textContent='E-Mail-Adresse kopiert.';},fb);}catch(e){fb();}
+    try{navigator.clipboard.writeText(el.textContent).then(function(){note.textContent='Kopiert.';},fb);}catch(e){fb();}
   });
 });
 </script>
