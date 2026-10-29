@@ -22,9 +22,9 @@ T = [
 
 # --- Hero ---
 ('Verfügbar für neue Mandate', 'Available for new assignments', 'Yeni projelere açığım'),
-('Interim-Projektleitung für Anlagenbau und Industrie. <span>Strukturiert, termintreu, sofort einsatzbereit.</span>',
- 'Interim project management for plant engineering and industry. <span>Structured, on schedule, ready to start.</span>',
- 'Tesis mühendisliği ve sanayi için geçici proje yönetimi. <span>Yapılandırılmış, zamanında, hemen başlamaya hazır.</span>'),
+('Interim-Projektleitung für Anlagenbau und Industrie. <span>Struktur. <em class="hl">Kommunikation.</em> Verantwortung.</span>',
+ 'Interim project management for plant engineering and industry. <span>Structure. <em class="hl">Communication.</em> Responsibility.</span>',
+ 'Tesis mühendisliği ve sanayi için geçici proje yönetimi. <span>Yapı. <em class="hl">İletişim.</em> Sorumluluk.</span>'),
 ('Wenn ein Projekt ins Stocken gerät, ein Projektleiter ausfällt oder Ihrem Team die Kapazität fehlt, übernehme ich Steuerung, Terminplanung und Koordination. Mit zehn Jahren Erfahrung aus Anlagenbau, Automotive und Fertigung.',
  'When a project stalls, a project manager drops out or your team lacks capacity, I take over control, scheduling and coordination. With ten years of experience in plant engineering, automotive and manufacturing.',
  'Bir proje tıkandığında, proje yöneticiniz ayrıldığında ya da ekibinizin kapasitesi yetmediğinde; proje yönetimini, termin planlamasını ve koordinasyonu üstleniyorum. Tesis mühendisliği, otomotiv ve üretimde on yıllık deneyimle.'),
