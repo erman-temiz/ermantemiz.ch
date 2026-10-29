@@ -3,6 +3,9 @@
 # Jeder deutsche Text muss in index.html genau so vorkommen.
 
 T = [
+('<a href="https://ermantemiz.ch/datenschutz.html">Vollständige Datenschutzerklärung</a>',
+ '<a href="https://ermantemiz.ch/datenschutz.html#en">Full privacy policy</a>',
+ '<a href="https://ermantemiz.ch/datenschutz.html#tr">Gizlilik politikasının tamamı</a>'),
 ('<p>Verantwortlich für den Inhalt: Erman Temiz</p>',
  '<p>Responsible for content: Erman Temiz</p>',
  '<p>İçerikten sorumlu: Erman Temiz</p>'),
