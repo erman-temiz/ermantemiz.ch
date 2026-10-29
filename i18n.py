@@ -3,6 +3,9 @@
 # Jeder deutsche Text muss in index.html genau so vorkommen.
 
 T = [
+('<span>Strategisches Management</span>',
+ '<span>Strategic management</span>',
+ '<span>Stratejik yönetim</span>'),
 ('<h1>Interim-Projektleitung für Anlagenbau und Industrie.</h1>',
  '<h1>Interim project management for plant engineering and industry.</h1>',
  '<h1>Tesis mühendisliği ve sanayi için geçici proje yönetimi.</h1>'),
