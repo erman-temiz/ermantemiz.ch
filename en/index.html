@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Erman Temiz Project Management</title>
+<meta name="description" content="Erman Temiz – interim project management, project coordination and scheduling for plant engineering and industry in Switzerland.">
+<link rel="canonical" href="https://ermantemiz.ch/en/">
+<link rel="alternate" hreflang="de" href="https://ermantemiz.ch/">
+<link rel="alternate" hreflang="en" href="https://ermantemiz.ch/en/">
+<link rel="alternate" hreflang="tr" href="https://ermantemiz.ch/tr/">
+<link rel="alternate" hreflang="x-default" href="https://ermantemiz.ch/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: engineering consultancy. A deep petrol hero carrying a live P&ID line drawing; below, calm white sections on a strict 12-col grid, hairline rules, mono tag codes as in plant documentation. */
+:root{
+  --bg:#F6F7F8;
+  --surface:#FFFFFF;
+  --ink:#121C24;
+  --muted:#56636F;
+  --line:#D8DEE3;
+  --band:#0B2A33;
+  --band-ink:#E8F0F2;
+  --band-muted:#8FB0B8;
+  --band-line:#2A4D57;
+  --accent:#0F7A8A;
+  --accent-ink:#FFFFFF;
+  --signal:#E0A526;
+  --soft:#E6F1F3;
+  --todo:#B4472E;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0C1418;--surface:#121D22;--ink:#E5ECEF;--muted:#9AAAB2;--line:#26363D;
+  --band:#081E25;--band-ink:#E8F0F2;--band-muted:#86A7AF;--band-line:#23444D;
+  --accent:#4FB9C8;--accent-ink:#06171C;--signal:#F0B946;--soft:#15292F;--todo:#E9826A;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0C1418;--surface:#121D22;--ink:#E5ECEF;--muted:#9AAAB2;--line:#26363D;
+  --band:#081E25;--band-ink:#E8F0F2;--band-muted:#86A7AF;--band-line:#23444D;
+  --accent:#4FB9C8;--accent-ink:#06171C;--signal:#F0B946;--soft:#15292F;--todo:#E9826A;color-scheme:dark}
+
+*{box-sizing:border-box}
+html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--band)}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+p{margin:0}
+.todo{border-bottom:1px dashed var(--todo);color:var(--todo)}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--band);color:var(--band-ink);border-bottom:1px solid var(--band-line)}
+header .wrap{display:flex;align-items:center;gap:24px;padding-block:14px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;margin-right:auto}
+.mono-mark{width:40px;height:40px;border:1.5px solid var(--band-ink);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-stretch:75%;font-size:1.05rem;letter-spacing:.02em;position:relative}
+.mono-mark::after{content:"";position:absolute;right:-1.5px;bottom:-1.5px;width:10px;height:10px;background:var(--signal)}
+.logo-text b{display:block;font-family:var(--display);font-weight:700;font-stretch:85%;font-size:1.05rem;letter-spacing:.01em;line-height:1.1}
+.logo-text span{display:block;font-family:var(--mono);font-size:.68rem;color:var(--band-muted);letter-spacing:.08em;text-transform:uppercase}
+nav{display:flex;gap:22px}
+nav a{color:var(--band-muted);text-decoration:none;font-size:.88rem;font-weight:500}
+nav a:hover{color:var(--band-ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;font-family:var(--body);font-weight:600;font-size:.94rem;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .15s,border-color .15s,color .15s;white-space:nowrap}
+.btn-signal{background:var(--signal);color:#1B1404}
+.btn-signal:hover{background:var(--band-ink)}
+.btn-ghost{border-color:var(--band-line);color:var(--band-ink);background:transparent}
+.btn-ghost:hover{border-color:var(--band-ink)}
+.btn-dark{background:var(--ink);color:var(--surface)}
+.btn-dark:hover{background:var(--accent);color:var(--accent-ink)}
+header .btn{padding:9px 16px;font-size:.85rem}
+@media (max-width:900px){nav{display:none}}
+@media (max-width:460px){header .btn{display:none}}
+.li-link{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--band-line);color:var(--band-ink);text-decoration:none;font-size:.85rem;font-weight:600;white-space:nowrap;transition:border-color .15s}
+.li-link:hover{border-color:var(--band-ink)}
+.lang{display:flex;border:1px solid var(--band-line)}
+.lang a{font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.06em;padding:8px 9px;color:var(--band-muted);text-decoration:none;line-height:1}
+.lang a + a{border-left:1px solid var(--band-line)}
+.lang a:hover{color:var(--band-ink)}
+.lang a[aria-current="page"]{background:var(--band-ink);color:var(--band)}
+@media (max-width:560px){.li-link{display:none}.logo-text span{display:none}}
+
+/* hero */
+.hero{background:var(--band);color:var(--band-ink);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center;padding-block:72px 64px}
+.hero .wrap > *{min-width:0}
+@media (max-width:920px){.hero .wrap{grid-template-columns:1fr;padding-block:48px}}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--signal);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:8px;height:8px;background:var(--signal);border-radius:50%;box-shadow:0 0 0 4px rgba(224,165,38,.18)}
+.hero h1{font-size:clamp(2.3rem,5.4vw,4.1rem);font-weight:800;font-stretch:78%;line-height:1;letter-spacing:-.005em;margin-top:18px}
+.hero h1 span{color:var(--band-muted)}
+.hero .lead{font-size:1.12rem;color:var(--band-muted);margin-top:22px;max-width:56ch}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.creds{display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:0;margin-top:40px;border-top:1px solid var(--band-line)}
+.creds div{padding:14px 22px 0 0;margin-right:22px;border-right:1px solid var(--band-line)}
+.creds div:last-child{border-right:0;margin-right:0}
+.creds b{display:block;font-family:var(--display);font-stretch:80%;font-weight:700;font-size:1.25rem;line-height:1.1}
+.creds span{font-size:.78rem;color:var(--band-muted)}
+@media (max-width:560px){.creds{grid-template-columns:1fr 1fr}.creds div{border-right:0;margin-right:0}}
+
+.pid{width:100%;height:auto;max-width:100%;display:block}
+.pid .ln{stroke:var(--band-muted);stroke-width:1.4;fill:none}
+.pid .eq{stroke:var(--band-ink);stroke-width:1.6;fill:var(--band)}
+.pid .flow{stroke:var(--signal);stroke-width:2;fill:none;stroke-dasharray:6 10;animation:flow 1.6s linear infinite}
+.pid .tx{fill:var(--band-muted);font-family:var(--mono);font-size:11px}
+.pid .tg{fill:var(--band-ink);font-family:var(--mono);font-size:10.5px;font-weight:500}
+.pid .ok{fill:var(--signal)}
+@keyframes flow{to{stroke-dashoffset:-32}}
+.pid-cap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:.7rem;color:var(--band-muted);letter-spacing:.06em;text-transform:uppercase;border-top:1px solid var(--band-line);padding-top:10px;margin-top:8px}
+
+/* experience strip */
+.strip{background:var(--surface);border-bottom:1px solid var(--line)}
+.strip .wrap{display:flex;align-items:center;gap:28px;flex-wrap:wrap;padding-block:22px}
+.strip small{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.strip ul{display:flex;flex-wrap:wrap;gap:10px 30px;list-style:none;margin:0;padding:0}
+.strip li{font-family:var(--display);font-weight:700;font-stretch:85%;font-size:1.05rem;color:var(--muted)}
+
+/* sections */
+section.blk{padding-block:88px}
+section.blk + section.blk{border-top:1px solid var(--line)}
+@media (max-width:700px){section.blk{padding-block:56px}}
+.sec-head{display:grid;grid-template-columns:1fr 1.3fr;gap:40px;align-items:end;margin-bottom:44px}
+.sec-head > *{min-width:0}
+@media (max-width:820px){.sec-head{grid-template-columns:1fr;gap:16px}}
+.kicker{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+h2{font-size:clamp(1.9rem,3.8vw,2.9rem);font-weight:800;font-stretch:80%;line-height:1.04}
+.sec-head p{color:var(--muted);font-size:1.05rem;max-width:60ch}
+h3{font-size:1.25rem;font-weight:700;font-stretch:88%;line-height:1.2}
+
+/* services */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media (max-width:960px){.svc-grid{grid-template-columns:1fr}}
+.svc{background:var(--surface);border:1px solid var(--line);padding:30px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.svc .code{font-family:var(--mono);font-size:.75rem;color:var(--accent);letter-spacing:.06em}
+.svc p{color:var(--muted)}
+.svc ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;border-top:1px solid var(--line);padding-top:16px}
+.svc li{display:grid;grid-template-columns:14px 1fr;gap:10px;font-size:.94rem}
+.svc li::before{content:"";width:8px;height:8px;border:1.5px solid var(--accent);margin-top:8px}
+.svc .out{margin-top:auto;background:var(--soft);padding:14px 16px;font-size:.9rem}
+.svc .out b{display:block;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:2px}
+
+/* models */
+.models{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);background:var(--surface)}
+@media (max-width:860px){.models{grid-template-columns:1fr}}
+.model{padding:28px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:10px;min-width:0}
+.model:last-child{border-right:0}
+@media (max-width:860px){.model{border-right:0;border-bottom:1px solid var(--line)}.model:last-child{border-bottom:0}}
+.model .pens{font-family:var(--display);font-stretch:78%;font-weight:800;font-size:2.4rem;line-height:1;font-variant-numeric:tabular-nums}
+.model .pens small{font-size:1rem;font-weight:600;color:var(--muted);margin-left:4px}
+.model p{color:var(--muted);font-size:.95rem}
+.model .meta{font-family:var(--mono);font-size:.74rem;color:var(--ink);border-top:1px solid var(--line);padding-top:10px;margin-top:auto}
+.avail-note{margin-top:20px;display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--signal);padding:16px 20px}
+.avail-note p{font-size:.95rem}
+
+/* cases */
+.cases{display:grid;gap:20px}
+.case{display:grid;grid-template-columns:260px 1fr;background:var(--surface);border:1px solid var(--line)}
+.case > *{min-width:0}
+@media (max-width:820px){.case{grid-template-columns:1fr}}
+.case-side{background:var(--band);color:var(--band-ink);padding:26px;display:flex;flex-direction:column;gap:10px}
+.case-side .code{font-family:var(--mono);font-size:.72rem;color:var(--signal);letter-spacing:.08em}
+.case-side h3{color:var(--band-ink)}
+.case-side dl{margin:auto 0 0;display:grid;gap:6px;font-size:.84rem}
+.case-side dt{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--band-muted)}
+.case-side dd{margin:0 0 6px}
+.case-body{padding:26px 30px;display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+@media (max-width:820px){.case-body{grid-template-columns:1fr}}
+.case-body h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 8px;font-weight:500}
+.case-body p{font-size:.94rem;color:var(--muted)}
+
+/* about */
+.about{display:grid;grid-template-columns:360px 1fr;gap:56px;align-items:start}
+.about > *{min-width:0}
+@media (max-width:900px){.about{grid-template-columns:1fr;gap:32px}}
+.portrait{margin:0;max-width:100%;position:relative;border:1px solid var(--line);background:var(--surface)}
+.portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+.portrait::after{content:"";position:absolute;right:-1px;bottom:-1px;width:14px;height:14px;background:var(--signal)}
+.portrait figcaption{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:12px 14px;border-top:1px solid var(--line)}
+.about-text p{font-size:1.06rem;max-width:62ch}
+.about-text p + p{margin-top:16px}
+.about-text .muted{color:var(--muted)}
+.cv{margin-top:32px;border-top:1px solid var(--line)}
+.cv-row{display:grid;grid-template-columns:110px 1fr;gap:20px;padding-block:13px;border-bottom:1px solid var(--line);font-size:.94rem}
+.cv-row > *{min-width:0}
+.cv-row time{font-family:var(--mono);font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:2px}
+.cv-row b{font-weight:600}
+.cv-row span{color:var(--muted)}
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px}
+@media (max-width:640px){.skills{grid-template-columns:1fr}}
+.skills h4{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 10px;font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--mono);font-size:.74rem;padding:4px 9px;border:1px solid var(--line);background:var(--surface)}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;list-style:none;margin:0;padding:0;counter-reset:s}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+.steps li{counter-increment:s;padding:24px 24px 24px 0;border-top:2px solid var(--ink);position:relative;min-width:0}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--display);font-stretch:75%;font-weight:800;font-size:2.4rem;color:var(--line);line-height:1;display:block;margin-bottom:12px}
+.steps li::after{content:"";position:absolute;top:-6px;left:0;width:10px;height:10px;background:var(--signal)}
+.steps p{color:var(--muted);font-size:.94rem;margin-top:8px}
+.steps .dur{font-family:var(--mono);font-size:.72rem;color:var(--accent);margin-top:10px;display:block}
+
+/* faq */
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+@media (max-width:820px){.faq{grid-template-columns:1fr}}
+details{border-top:1px solid var(--line);padding-block:18px}
+summary{cursor:pointer;font-weight:600;font-size:1.02rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);color:var(--accent);font-size:1.2rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted);margin-top:10px;font-size:.95rem;max-width:60ch}
+
+/* contact */
+.contact{background:var(--band);color:var(--band-ink)}
+.contact .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;padding-block:88px}
+.contact .wrap > *{min-width:0}
+@media (max-width:860px){.contact .wrap{grid-template-columns:1fr;padding-block:56px;gap:36px}}
+.contact h2{color:var(--band-ink)}
+.contact .lead{color:var(--band-muted);font-size:1.08rem;margin-top:18px;max-width:52ch}
+.ccard{border:1px solid var(--band-line);display:grid}
+.crow{display:grid;grid-template-columns:110px 1fr auto;gap:14px;align-items:center;padding:16px 20px;border-bottom:1px solid var(--band-line)}
+.crow:last-child{border-bottom:0}
+.crow > *{min-width:0}
+.crow .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--band-muted)}
+.crow .v{font-family:var(--mono);font-size:.95rem;word-break:break-all}
+.crow .v a{color:var(--band-ink)}
+.crow .todo{color:var(--signal);border-color:var(--signal)}
+.copy{background:transparent;border:1px solid var(--band-line);color:var(--band-ink);font-family:var(--mono);font-size:.72rem;padding:6px 10px;cursor:pointer}
+.copy:hover{border-color:var(--band-ink)}
+@media (max-width:480px){.crow{grid-template-columns:1fr auto}.crow .k{grid-column:1/-1}}
+.copy-note{font-family:var(--mono);font-size:.75rem;color:var(--signal);min-height:1.2em;margin-top:10px}
+
+/* footer / legal */
+footer{background:var(--surface);border-top:1px solid var(--line)}
+.legal{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;padding-block:44px;font-size:.86rem;color:var(--muted)}
+.legal > *{min-width:0}
+@media (max-width:820px){.legal{grid-template-columns:1fr}}
+.legal h4{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin:0 0 10px;font-weight:500}
+.legal p + p{margin-top:8px}
+.foot-bar{border-top:1px solid var(--line)}
+.foot-bar .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-block:18px 32px;font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#start" aria-label="Erman Temiz, back to top">
+      <span class="mono-mark">ET</span>
+      <span class="logo-text"><b>Erman Temiz</b><span>Project Management · Interim</span></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#leistungen">Services</a>
+      <a href="#einsatz">Engagement models</a>
+      <a href="#projekte">Projects</a>
+      <a href="#ueber-mich">About me</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language"><a href="https://ermantemiz.ch/" lang="de" hreflang="de">DE</a><a href="https://ermantemiz.ch/en/" lang="en" hreflang="en" aria-current="page">EN</a><a href="https://ermantemiz.ch/tr/" lang="tr" hreflang="tr">TR</a></div>
+    <a class="li-link" href="https://www.linkedin.com/in/erman-temiz/" target="_blank" rel="noopener" aria-label="LinkedIn profile of Erman Temiz (opens in new tab)">LinkedIn<svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M4 2h6v6M10 2 3 9" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
+    <a class="btn btn-signal" href="#kontakt">Intro call</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="start">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Available for new assignments</div>
+        <h1>Interim project management for plant engineering and industry. <span>Structured, on schedule, ready to start.</span></h1>
+        <p class="lead">When a project stalls, a project manager drops out or your team lacks capacity, I take over control, scheduling and coordination. With ten years of experience in plant engineering, automotive and manufacturing.</p>
+        <div class="cta">
+          <a class="btn btn-signal" href="#kontakt">Free intro call</a>
+          <a class="btn btn-ghost" href="#projekte">View project examples</a>
+        </div>
+        <div class="creds">
+          <div><b>~10 years</b><span>Professional experience</span></div>
+          <div><b>B.Sc.</b><span>Industrial engineering</span></div>
+          <div><b>MBA</b><span>FH Kärnten</span></div>
+          <div><b>Six Sigma</b><span>Green Belt</span></div>
+        </div>
+      </div>
+
+      <figure style="margin:0">
+        <svg class="pid" viewBox="0 0 520 380" role="img" aria-label="Schematic drawing of a dosing system with tank, pump, valves and instruments">
+          <!-- grid ticks -->
+          <g class="ln" opacity=".35">
+            <path d="M20 20h480M20 360h480M20 20v340M500 20v340"/>
+          </g>
+          <!-- tank -->
+          <path class="eq" d="M60 90h90v150a10 10 0 0 1-10 10H70a10 10 0 0 1-10-10z"/>
+          <path class="ln" d="M60 120h90"/>
+          <text class="tg" x="80" y="180">B-101</text>
+          <text class="tx" x="66" y="270">Feed tank</text>
+          <!-- level instrument -->
+          <circle class="eq" cx="105" cy="60" r="16"/>
+          <path class="ln" d="M89 60h32"/>
+          <text class="tg" x="96" y="56">LI</text>
+          <text class="tg" x="94" y="72">101</text>
+          <path class="ln" d="M105 76v14"/>
+          <!-- line tank -> pump -->
+          <path class="ln" d="M150 220h60"/>
+          <path class="flow" d="M150 220h60"/>
+          <!-- valve -->
+          <path class="eq" d="M210 210l20 10-20 10zM250 210l-20 10 20 10z"/>
+          <text class="tg" x="214" y="200">V-102</text>
+          <path class="ln" d="M250 220h30"/>
+          <path class="flow" d="M250 220h30"/>
+          <!-- pump -->
+          <circle class="eq" cx="305" cy="220" r="25"/>
+          <path class="ln" d="M290 202l30 18-30 18"/>
+          <text class="tg" x="286" y="268">P-101</text>
+          <text class="tx" x="262" y="284">Dosing pump</text>
+          <!-- line pump up -->
+          <path class="ln" d="M330 220h40V120h60"/>
+          <path class="flow" d="M330 220h40V120h60"/>
+          <!-- flow controller -->
+          <circle class="eq" cx="370" cy="80" r="16"/>
+          <path class="ln" d="M354 80h32"/>
+          <text class="tg" x="358" y="76">FIC</text>
+          <text class="tg" x="360" y="92">102</text>
+          <path class="ln" d="M370 96v24" stroke-dasharray="3 3"/>
+          <!-- check valve -->
+          <path class="eq" d="M430 110l20 10-20 10z"/>
+          <path class="ln" d="M452 108v24"/>
+          <path class="ln" d="M452 120h28"/>
+          <path class="flow" d="M452 120h28"/>
+          <text class="tx" x="420" y="150">to process</text>
+          <!-- status -->
+          <circle class="ok" cx="40" cy="330" r="5"/>
+          <text class="tx" x="52" y="334">Rev. C · checked and approved</text>
+        </svg>
+        <figcaption class="pid-cap"><span>Project · Dosing system</span><span>Drawing checked · Deadline met</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap">
+      <small>Experience at</small>
+      <ul>
+        <li>ProMinent</li><li>ZF Friedrichshafen</li><li>Deutsche Accumotive</li><li>Delignit</li><li>DESTACO</li><li>Bosch</li><li>Siemens</li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="blk" id="leistungen">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="kicker">Services</div><h2>Three ways I move your project forward</h2></div>
+        <p>I work where technology, deadlines and people meet: between engineering, purchasing, production and the customer. You get a project manager who can read drawings and keeps an eye on the critical path.</p>
+      </div>
+      <div class="svc-grid">
+        <article class="svc">
+          <span class="code">L-01 · INTERIM</span>
+          <h3>Interim project management</h3>
+          <p>I take full responsibility for an ongoing or new project during a vacancy, illness or overload.</p>
+          <ul>
+            <li>Project leadership from order clarification to acceptance</li>
+            <li>Control of cost, schedule and quality</li>
+            <li>Customer and supplier communication</li>
+            <li>Claim and change management</li>
+          </ul>
+          <div class="out"><b>Result</b>The project keeps running without internal reshuffling.</div>
+        </article>
+        <article class="svc">
+          <span class="code">L-02 · PLANNING</span>
+          <h3>Scheduling &amp; project coordination</h3>
+          <p>Reliable plans and a clear status, so your management can decide instead of chasing updates.</p>
+          <ul>
+            <li>Schedules with critical path in MS Project</li>
+            <li>Milestone and resource planning</li>
+            <li>Plan-vs-actual tracking and status reports</li>
+            <li>Coordination of trades and interfaces</li>
+          </ul>
+          <div class="out"><b>Result</b>Everyone on the project knows what needs to be done by when.</div>
+        </article>
+        <article class="svc">
+          <span class="code">L-03 · QUALITY</span>
+          <h3>Technical approvals &amp; process quality</h3>
+          <p>Methods from the automotive industry for clean documents and stable processes.</p>
+          <ul>
+            <li>Review and approval of CAD drawings</li>
+            <li>Document control and revision status</li>
+            <li>FMEA, 8D, A3 and process audits to VDA 6.3</li>
+            <li>Supplier evaluation and failure analysis</li>
+          </ul>
+          <div class="out"><b>Result</b>Less rework on site and at the customer.</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="einsatz">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="kicker">Engagement models</div><h2>As flexible as your project needs</h2></div>
+        <p>On site in German-speaking Switzerland, hybrid or remote. Projects in Germany and Austria on request.</p>
+      </div>
+      <div class="models">
+        <div class="model">
+          <span class="kicker" style="margin:0">Part-time assignment</span>
+          <div class="pens">40–60<small>%</small></div>
+          <p>Fixed days per week on the project. Ideal for scheduling, coordination and status tracking alongside your team.</p>
+          <div class="meta">Billed hourly</div>
+        </div>
+        <div class="model">
+          <span class="kicker" style="margin:0">Interim</span>
+          <div class="pens">80–100<small>%</small></div>
+          <p>Full takeover of project management for several months, until a permanent hire is found or the project is completed.</p>
+          <div class="meta">Billed at a daily rate</div>
+        </div>
+        <div class="model">
+          <span class="kicker" style="margin:0">Work package</span>
+          <div class="pens">Fixed</div>
+          <p>A clearly defined task with a fixed result, such as a master schedule, a project audit or cleaning up the documentation.</p>
+          <div class="meta">Fixed price per quote</div>
+        </div>
+      </div>
+      <div class="avail-note">
+        <p><b>Current availability:</b> part-time assignments up to 60% from now. Interim assignments up to 100% from May 2027.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="projekte">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="kicker">Project examples</div><h2>What I have been responsible for</h2></div>
+        <p>Selection of projects from permanent positions. Customer names are withheld for confidentiality.</p>
+      </div>
+      <div class="cases">
+        <article class="case">
+          <div class="case-side">
+            <span class="code">P-01 · PLANT ENGINEERING</span>
+            <h3>Dosing and treatment systems</h3>
+            <dl>
+              <dt>Company</dt><dd>ProMinent Dosiertechnik AG</dd>
+              <dt>Role</dt><dd>Project manager</dd>
+            </dl>
+          </div>
+          <div class="case-body">
+            <div><h4>Situation</h4><p>Customer-specific systems with many stakeholders: engineering, production, purchasing and the customer had to be aligned to one deadline.</p></div>
+            <div><h4>My role</h4><p>End-to-end project leadership. Review and approval of CAD drawings and technical documents before production.</p></div>
+          </div>
+        </article>
+        <article class="case">
+          <div class="case-side">
+            <span class="code">P-02 · AUTOMOTIVE</span>
+            <h3>Quality in OEM customer projects</h3>
+            <dl>
+              <dt>Company</dt><dd>ZF Friedrichshafen AG</dd>
+              <dt>Role</dt><dd>Quality engineer</dd>
+            </dl>
+          </div>
+          <div class="case-body">
+            <div><h4>Situation</h4><p>Series projects for Audi, BMW, VW, Mercedes and NedCar with high demands on process capability and delivery quality.</p></div>
+            <div><h4>My role</h4><p>Process audits to VDA 6.3, FMEA, 8D and A3 problem solving together with production and suppliers.</p></div>
+          </div>
+        </article>
+        <article class="case">
+          <div class="case-side">
+            <span class="code">P-03 · E-MOBILITY</span>
+            <h3>Production planning for high-voltage batteries</h3>
+            <dl>
+              <dt>Company</dt><dd>Deutsche Accumotive GmbH</dd>
+              <dt>Role</dt><dd>Production planner</dd>
+            </dl>
+          </div>
+          <div class="case-body">
+            <div><h4>Situation</h4><p>Battery production for the Daimler group with tightly timed call-offs and scarce materials.</p></div>
+            <div><h4>My role</h4><p>Planning production and material requirements in SAP, alignment with logistics and production.</p></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="ueber-mich">
+    <div class="wrap about">
+      <figure class="portrait">
+        <img src="../img/erman-temiz.jpg" width="720" height="900" alt="Portrait of Erman Temiz" loading="lazy">
+        <figcaption>Erman Temiz · B.Sc. Industrial Engineering · MBA</figcaption>
+      </figure>
+      <div class="about-text">
+        <div class="kicker">About me</div>
+        <h2>Erman Temiz</h2>
+        <p style="margin-top:18px">I am an industrial engineer and over the past ten years I have led plant engineering projects, been responsible for quality in automotive series projects and planned production. This mix of engineering and business is my strength.</p>
+        <p class="muted">I work in a structured, solution-oriented way, speak the language of both engineers and management and bring them to the same table. I am currently completing my part-time MBA at FH Kärnten.</p>
+
+        <div class="cv">
+          <div class="cv-row"><time>Plant engineering</time><div><b>ProMinent Dosiertechnik AG</b> <span>· Project manager</span></div></div>
+          <div class="cv-row"><time>Manufacturing</time><div><b>Delignit AG</b> <span>· Work preparation &amp; scheduling</span></div></div>
+          <div class="cv-row"><time>Automotive</time><div><b>ZF Friedrichshafen AG</b> <span>· Quality engineer</span></div></div>
+          <div class="cv-row"><time>E-mobility</time><div><b>Deutsche Accumotive GmbH</b> <span>· Production planner</span></div></div>
+          <div class="cv-row"><time>2015–2016</time><div><b>DESTACO Europe GmbH</b> <span>· Technical buyer</span></div></div>
+          <div class="cv-row"><time>2011–2012</time><div><b>Robert Bosch GmbH, Siemens AG</b> <span>· Internship / working student</span></div></div>
+        </div>
+
+        <div class="skills">
+          <div><h4>Methods</h4><div class="chips"><span class="chip">FMEA</span><span class="chip">8D</span><span class="chip">A3</span><span class="chip">VDA 6.3</span><span class="chip">Six Sigma GB</span></div></div>
+          <div><h4>Tools</h4><div class="chips"><span class="chip">MS Project</span><span class="chip">SAP MM/PP</span><span class="chip">ABAS</span><span class="chip">SMAP3D</span><span class="chip">BIM Collab</span><span class="chip">Visio</span></div></div>
+          <div><h4>Languages</h4><div class="chips"><span class="chip">German</span><span class="chip">Turkish</span><span class="chip">English</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="vorgehen">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="kicker">Approach</div><h2>From the first call to handover</h2></div>
+        <p>Short lines of communication, clear agreements. You always know what I'm working on and where the project stands.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Intro call</h3><p>You describe the project, its status and the bottleneck. I tell you honestly whether I'm the right fit.</p><span class="dur">30 min · free</span></li>
+        <li><h3>Proposal</h3><p>Scope, workload, duration and rate, in writing and easy to understand.</p><span class="dur">within 2 working days</span></li>
+        <li><h3>Onboarding</h3><p>Getting up to speed on documents, schedule and team. First status report with risks and actions.</p><span class="dur">first week</span></li>
+        <li><h3>Handover</h3><p>Clean documentation and handover so your team can continue without loss of knowledge.</p><span class="dur">at the end of the assignment</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="blk" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="kicker">FAQ</div><h2>Good to know</h2></div>
+        <p>What clients usually ask before the first conversation.</p>
+      </div>
+      <div class="faq">
+        <div>
+          <details open><summary>How quickly can you start?</summary><p>For part-time assignments, usually within one to two weeks of the order.</p></details>
+          <details><summary>Do you work on site or remotely?</summary><p>Both. Especially in the start-up phase and for site or production appointments, I'm happy to be on site. Status tracking and planning work well remotely.</p></details>
+        </div>
+        <div>
+          <details><summary>How is billing done?</summary><p>Hourly or at a daily rate with a monthly timesheet, or as a fixed price for clearly defined work packages.</p></details>
+          <details><summary>Do you also take on projects in Germany and Austria?</summary><p>Yes. I worked in Germany for many years and know how things work there. Remotely or with agreed on-site days.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="kontakt">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Contact</div>
+        <h2 style="margin-top:16px">Does your project need reinforcement?</h2>
+        <p class="lead">Send me a short note with your industry, project phase and desired workload. I will get back to you within 24 hours with a proposed time for an intro call.</p>
+      </div>
+      <div>
+        <div class="ccard">
+          <div class="crow"><span class="k">Email</span><span class="v" id="mail"><a href="mailto:kontakt@ermantemiz.ch">kontakt@ermantemiz.ch</a></span><button class="copy" type="button" data-copy="mail">Copy</button></div>
+          <div class="crow"><span class="k">Phone</span><span class="v" id="tel"><a href="tel:+41766358114">+41 76 635 81 14</a></span><button class="copy" type="button" data-copy="tel">Copy</button></div>
+          <div class="crow"><span class="k">LinkedIn</span><span class="v"><a href="https://www.linkedin.com/in/erman-temiz/" target="_blank" rel="noopener">linkedin.com/in/erman-temiz</a></span><a class="copy" href="https://www.linkedin.com/in/erman-temiz/" target="_blank" rel="noopener" style="text-decoration:none">Profile</a></div>
+          <div class="crow"><span class="k">Region</span><span class="v">German-speaking Switzerland</span><span></span></div>
+        </div>
+        <div class="copy-note" id="copyNote" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap legal">
+    <div id="impressum">
+      <h4>Legal notice</h4>
+      <p>Erman Temiz<br>Project Management &amp; Interim Management<br>Switzerland</p>
+      <p>Email: <a href="mailto:kontakt@ermantemiz.ch">kontakt@ermantemiz.ch</a></p>
+      <p>Phone: <a href="tel:+41766358114">+41 76 635 81 14</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/erman-temiz/" target="_blank" rel="noopener">linkedin.com/in/erman-temiz</a></p>
+    </div>
+    <div id="datenschutz">
+      <h4>Privacy</h4>
+      <p>This website uses no cookies and no tracking. Data you send me by email is used solely to handle your enquiry, in accordance with the Swiss Federal Act on Data Protection (FADP).</p>
+    </div>
+    <div>
+      <h4>Liability</h4>
+      <p>The content of this website has been prepared with care. The operators of external links are solely responsible for their content.</p>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <div class="wrap"><span>© 2026 Erman Temiz</span><span>Interim project management · Plant engineering · Industry</span></div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('[data-copy]').forEach(function(b){
+  b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.copy),note=document.getElementById('copyNote');
+    function fb(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);note.textContent='Selected. Press Ctrl+C to copy.';}
+    try{navigator.clipboard.writeText(el.textContent).then(function(){note.textContent='Copied.';},fb);}catch(e){fb();}
+  });
+});
+</script>
+</body>
+</html>

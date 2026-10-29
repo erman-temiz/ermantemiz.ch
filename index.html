@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Erman Temiz Projektleitung</title>
 <meta name="description" content="Erman Temiz – Interim-Projektleitung, Projektkoordination und Terminplanung für Anlagenbau und Industrie in der Schweiz.">
+<link rel="canonical" href="https://ermantemiz.ch/">
+<link rel="alternate" hreflang="de" href="https://ermantemiz.ch/">
+<link rel="alternate" hreflang="en" href="https://ermantemiz.ch/en/">
+<link rel="alternate" hreflang="tr" href="https://ermantemiz.ch/tr/">
+<link rel="alternate" hreflang="x-default" href="https://ermantemiz.ch/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -74,6 +79,12 @@ header .btn{padding:9px 16px;font-size:.85rem}
 @media (max-width:460px){header .btn{display:none}}
 .li-link{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--band-line);color:var(--band-ink);text-decoration:none;font-size:.85rem;font-weight:600;white-space:nowrap;transition:border-color .15s}
 .li-link:hover{border-color:var(--band-ink)}
+.lang{display:flex;border:1px solid var(--band-line)}
+.lang a{font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.06em;padding:8px 9px;color:var(--band-muted);text-decoration:none;line-height:1}
+.lang a + a{border-left:1px solid var(--band-line)}
+.lang a:hover{color:var(--band-ink)}
+.lang a[aria-current="page"]{background:var(--band-ink);color:var(--band)}
+@media (max-width:560px){.li-link{display:none}.logo-text span{display:none}}
 
 /* hero */
 .hero{background:var(--band);color:var(--band-ink);overflow:hidden}
@@ -252,6 +263,7 @@ footer{background:var(--surface);border-top:1px solid var(--line)}
       <a href="#ueber-mich">Über mich</a>
       <a href="#faq">FAQ</a>
     </nav>
+    <div class="lang" role="group" aria-label="Sprache"><a href="https://ermantemiz.ch/" lang="de" hreflang="de" aria-current="page">DE</a><a href="https://ermantemiz.ch/en/" lang="en" hreflang="en">EN</a><a href="https://ermantemiz.ch/tr/" lang="tr" hreflang="tr">TR</a></div>
     <a class="li-link" href="https://www.linkedin.com/in/erman-temiz/" target="_blank" rel="noopener" aria-label="LinkedIn-Profil von Erman Temiz (öffnet in neuem Tab)">LinkedIn<svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M4 2h6v6M10 2 3 9" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
     <a class="btn btn-signal" href="#kontakt">Erstgespräch</a>
   </div>
