@@ -167,10 +167,10 @@ h3{font-size:1.25rem;font-weight:700;font-stretch:88%;line-height:1.2}
 .about{display:grid;grid-template-columns:360px 1fr;gap:56px;align-items:start}
 .about > *{min-width:0}
 @media (max-width:900px){.about{grid-template-columns:1fr;gap:32px}}
-.portrait{aspect-ratio:4/5;max-width:100%;background:var(--band);color:var(--band-muted);display:grid;place-items:center;position:relative;border:1px solid var(--line)}
-.portrait::before{content:"";position:absolute;inset:14px;border:1px solid var(--band-line)}
-.portrait div{text-align:center;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;line-height:1.6}
-.portrait b{display:block;font-family:var(--display);font-stretch:75%;font-size:4rem;color:var(--band-ink);letter-spacing:.02em;margin-bottom:8px}
+.portrait{margin:0;max-width:100%;position:relative;border:1px solid var(--line);background:var(--surface)}
+.portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+.portrait::after{content:"";position:absolute;right:-1px;bottom:-1px;width:14px;height:14px;background:var(--signal)}
+.portrait figcaption{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:12px 14px;border-top:1px solid var(--line)}
 .about-text p{font-size:1.06rem;max-width:62ch}
 .about-text p + p{margin-top:16px}
 .about-text .muted{color:var(--muted)}
@@ -473,9 +473,10 @@ footer{background:var(--surface);border-top:1px solid var(--line)}
 
   <section class="blk" id="ueber-mich">
     <div class="wrap about">
-      <div class="portrait" role="img" aria-label="Monogramm Erman Temiz">
-        <div><b>ET</b>Erman Temiz</div>
-      </div>
+      <figure class="portrait">
+        <img src="img/erman-temiz.jpg" width="720" height="900" alt="Porträt von Erman Temiz" loading="lazy">
+        <figcaption>Erman Temiz · Wirtschaftsingenieur B.Sc. · MBA</figcaption>
+      </figure>
       <div class="about-text">
         <div class="kicker">Über mich</div>
         <h2>Erman Temiz</h2>
