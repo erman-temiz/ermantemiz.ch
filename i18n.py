@@ -3,6 +3,9 @@
 # Jeder deutsche Text muss in index.html genau so vorkommen.
 
 T = [
+('<b>Hays, Einsatz bei Lear Corporation und TI Automotive</b> <span>· Montageplaner / Arbeitsvorbereiter</span>',
+ '<b>Hays, assignments at Lear Corporation and TI Automotive</b> <span>· Assembly planner / process planner</span>',
+ '<b>Hays, Lear Corporation ve TI Automotive görevlendirmeleri</b> <span>· Montaj planlamacısı / iş hazırlık planlamacısı</span>'),
 ('<b>FERCHAU Engineering, Einsatz bei DESTACO Europe GmbH</b>',
  '<b>FERCHAU Engineering, assignment at DESTACO Europe GmbH</b>',
  '<b>FERCHAU Engineering, DESTACO Europe GmbH görevlendirmesi</b>'),
