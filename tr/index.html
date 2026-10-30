@@ -168,7 +168,7 @@ h3{font-size:1.25rem;font-weight:700;font-stretch:88%;line-height:1.2}
 .case-side dd{margin:0 0 6px}
 .case-body{padding:26px 30px;display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
 .case-body.case-3{grid-template-columns:repeat(3,1fr)}
-@media (max-width:820px){.case-body{grid-template-columns:1fr}}
+@media (max-width:820px){.case-body,.case-body.case-3{grid-template-columns:1fr}}
 .case-body h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 8px;font-weight:500}
 .case-body p{font-size:.94rem;color:var(--muted)}
 
@@ -214,6 +214,10 @@ summary::-webkit-details-marker{display:none}
 summary::after{content:"+";font-family:var(--mono);color:var(--accent);font-size:1.2rem;line-height:1}
 details[open] summary::after{content:"–"}
 details p{color:var(--muted);margin-top:10px;font-size:.95rem;max-width:60ch}
+.more{border-top:0;padding-block:0;margin-top:20px}
+.more>summary{justify-content:center;border:1px solid var(--line);padding:14px 20px;font-size:.95rem}
+.more>summary:hover{border-color:var(--accent)}
+.more>.cases{margin-top:20px}
 
 /* contact */
 .contact{background:var(--band);color:var(--band-ink)}
@@ -384,7 +388,7 @@ footer{background:var(--surface);border-top:1px solid var(--line)}
     <div class="wrap">
       <div class="sec-head">
         <div><div class="kicker">Proje örnekleri</div><h2>Bugüne kadar sorumluluğunu üstlendiklerim</h2></div>
-        <p>Kadrolu çalıştığım dönemden seçilmiş projeler.</p>
+        <p>Kronolojik sırayla, en güncel proje başta.</p>
       </div>
       <div class="cases">
         <article class="case">
@@ -394,7 +398,7 @@ footer{background:var(--surface);border-top:1px solid var(--line)}
             <dl>
               <dt>Yer</dt><dd>Zuchwil, İsviçre</dd>
               <dt>Şirket</dt><dd>ProMinent Dosiertechnik AG</dd>
-              <dt>Rol</dt><dd>Teknik proje yöneticisi</dd>
+              <dt>Rol · Dönem</dt><dd>Teknik Proje Yöneticisi · 2024–2026</dd>
             </dl>
           </div>
           <div class="case-body case-3">
@@ -409,7 +413,7 @@ footer{background:var(--surface);border-top:1px solid var(--line)}
             <h3>Dozaj tesislerinde uçtan uca proje yönetimi</h3>
             <dl>
               <dt>Şirket</dt><dd>ProMinent Dosiertechnik AG</dd>
-              <dt>Rol</dt><dd>Teknik proje yöneticisi</dd>
+              <dt>Rol · Dönem</dt><dd>Teknik Proje Yöneticisi · 2024–2026</dd>
             </dl>
           </div>
           <div class="case-body case-3">
@@ -459,6 +463,122 @@ footer{background:var(--surface);border-top:1px solid var(--line)}
           </div>
         </article>
       </div>
+      <details class="more">
+        <summary>Diğer projeler 2013–2020</summary>
+        <div class="cases">
+        <article class="case">
+          <div class="case-side">
+            <span class="code">P-05 · LOJİSTİK</span>
+            <h3>Seri üretimde iş hazırlığı ve lojistik</h3>
+            <dl>
+              <dt>Şirket</dt><dd>Delignit AG</dd>
+              <dt>Rol · Dönem</dt><dd>Lojistik Müdür Yardımcısı · 2020</dd>
+            </dl>
+          </div>
+          <div class="case-body case-3">
+            <div><h4>Sipariş yönetimi</h4><p>Yarı mamul ve mamul işleme siparişlerinin maliyet, kapasite ve termin dikkate alınarak planlanması, yönetimi ve yürütülmesi.</p></div>
+            <div><h4>Kapasite ve maliyetlendirme</h4><p>Teknik fizibilite kontrolü, kapasite planlaması ve teknik maliyet hesabı; ürün ağaçları ve ana verilerin bakımı.</p></div>
+            <div><h4>Malzeme planlama ve teslimat</h4><p>Hammadde planlaması, stok kontrolü ve üretim, satış, kalite ve satın alma ile koordineli olarak zamanında teslimat sorumluluğu.</p></div>
+          </div>
+        </article>
+        <article class="case">
+          <div class="case-side">
+            <span class="code">P-06 · ÜRETİM PLANLAMA</span>
+            <h3>Test standlı üretim ve alan planlaması</h3>
+            <dl>
+              <dt>Müşteri</dt><dd>Rheinmetall</dd>
+              <dt>İşveren</dt><dd>FERCHAU Engineering GmbH</dd>
+              <dt>Rol · Dönem</dt><dd>Üretim planlama ve iş hazırlığı · 2018</dd>
+            </dl>
+          </div>
+          <div class="case-body case-3">
+            <div><h4>Alan ve altyapı</h4><p>Geçici atölye, kalibrasyon ve ölçüm alanları ile üç marş/jeneratör test standının medya beslemesinin tasarımı.</p></div>
+            <div><h4>Maliyet ve taşınma</h4><p>Üretim taşınmasının planlanması ve üretim taşınmaları, yenileme ve ses yalıtım kabini için maliyet tahmini.</p></div>
+            <div><h4>İş planlaması</h4><p>İş planları, üretim ürün ağaçları ve iş dokümanları; takt, akış ve işlem sürelerinin belirlenmesi ve yeni projelerin seri üretime alınması.</p></div>
+          </div>
+        </article>
+        <article class="case">
+          <div class="case-side">
+            <span class="code">P-07 · OTOMOTİV</span>
+            <h3>Otomotiv tedarikçilerinde montaj planlaması</h3>
+            <dl>
+              <dt>Müşteri</dt><dd>Lear Corporation, TI Automotive</dd>
+              <dt>İşveren</dt><dd>Hays Professional Solutions GmbH</dd>
+              <dt>Rol · Dönem</dt><dd>Montaj planlamacısı / iş hazırlık · 2016–2017</dd>
+            </dl>
+          </div>
+          <div class="case-body case-3">
+            <div><h4>Prosesler ve tesisler</h4><p>Proseslerin ve montaj tesislerinin tasarımı ve optimizasyonu; üretim alanlarının kurulması ve organizasyonu.</p></div>
+            <div><h4>Zaman etüdü</h4><p>Üretim sürelerinin belirlenmesi, iş akışlarının optimizasyonu ve hat dengeleme.</p></div>
+            <div><h4>Maliyet ve yerleşim</h4><p>Maliyet azaltma önlemleri, proje desteği ve yerleşim tasarımına katkı.</p></div>
+          </div>
+        </article>
+        <article class="case">
+          <div class="case-side">
+            <span class="code">P-08 · SATIN ALMA</span>
+            <h3>Teknik satın alma ve tedarikçi yönetimi</h3>
+            <dl>
+              <dt>Müşteri</dt><dd>DESTACO Europe GmbH</dd>
+              <dt>İşveren</dt><dd>FERCHAU Engineering GmbH</dd>
+              <dt>Rol · Dönem</dt><dd>Teknik satın almacı · 2016</dd>
+            </dl>
+          </div>
+          <div class="case-body case-3">
+            <div><h4>Müzakere</h4><p>Fiyat, sözleşme ve ödeme koşullarının müzakeresi; tekliflerin alınması ve değerlendirilmesi.</p></div>
+            <div><h4>Tedarikçi yönetimi</h4><p>Tedarikçilerin seçimi, ziyareti, değerlendirilmesi ve geliştirilmesi; uluslararası tedarik pazarlarının analizi.</p></div>
+            <div><h4>Maliyet düşürme</h4><p>Maliyet düşürme potansiyellerinin belirlenmesi ve uygulanması, raporlama ve şikâyet süreçlerine destek.</p></div>
+          </div>
+        </article>
+        <article class="case">
+          <div class="case-side">
+            <span class="code">P-09 · FABRİKA KURULUMU</span>
+            <h3>Brezilya'da yeni bir otomobil fabrikası için lojistik ve montaj planlaması</h3>
+            <dl>
+              <dt>Müşteri</dt><dd>Daimler AG</dd>
+              <dt>İşveren</dt><dd>Ingenics Services GmbH</dd>
+              <dt>Rol · Dönem</dt><dd>Proje mühendisi · 2015</dd>
+            </dl>
+          </div>
+          <div class="case-body case-3">
+            <div><h4>Lojistik planlaması</h4><p>W205 model serisi için lojistik planlaması ile malzeme hazırlama ve besleme planlaması.</p></div>
+            <div><h4>Takt dengeleme</h4><p>X156 serisi için iç donanım, şasi, EOL ve finish alanlarında detaylı takt dengeleme ve doğrulama; takt süresi ve yürüme yolu diyagramları dahil.</p></div>
+            <div><h4>Yerleşim ve MTM</h4><p>MS Visio'da süpermarket, lojistik alanı ve yerleşim planlaması ile MTM'ye göre iş etüdü.</p></div>
+          </div>
+        </article>
+        <article class="case">
+          <div class="case-side">
+            <span class="code">P-10 · MONTAJ PLANLAMA</span>
+            <h3>Otomobil montajında proses planlaması</h3>
+            <dl>
+              <dt>Müşteri</dt><dd>BMW</dd>
+              <dt>İşveren</dt><dd>EDAG Production Solutions</dd>
+              <dt>Rol · Dönem</dt><dd>Planlamacı · 2013–2014</dd>
+            </dl>
+          </div>
+          <div class="case-body case-3">
+            <div><h4>Proses planlaması</h4><p>Otomobil montajı için proses planlaması ve yeni bir modelin mevcut montaj hattına entegrasyonu.</p></div>
+            <div><h4>Ekipman</h4><p>Bir CKD kamyon montajının ekipmanları için şartname hazırlanması.</p></div>
+            <div><h4>Ergonomi</h4><p>Brezilya'daki bir CKD araç montajı için MTM ile ergonomi analizleri.</p></div>
+          </div>
+        </article>
+        <article class="case">
+          <div class="case-side">
+            <span class="code">P-11 · ÜRETİM PLANLAMA</span>
+            <h3>Üretim planlaması ve zaman etüdü</h3>
+            <dl>
+              <dt>Müşteri</dt><dd>Audi</dd>
+              <dt>İşveren</dt><dd>BrainOn GmbH</dd>
+              <dt>Rol · Dönem</dt><dd>Proje mühendisi · 2013</dd>
+            </dl>
+          </div>
+          <div class="case-body case-3">
+            <div><h4>Üretim planlaması</h4><p>Üretim planlarının kontrolü ve karşılaştırılması, operasyonların planlanması ve AP sisteminde akış alternatiflerinin değerlendirilmesi.</p></div>
+            <div><h4>Zaman etüdü</h4><p>Tüm faaliyetler için MTM-UAS ve diğer zaman modülleriyle üretim sürelerinin belirlenmesi.</p></div>
+            <div><h4>Optimizasyon</h4><p>İş sistemi ve ergonomi açısından iyileştirme önerileri ve KVP/Kaizen önlemlerinin uygulanması.</p></div>
+          </div>
+        </article>
+        </div>
+      </details>
     </div>
   </section>
 
