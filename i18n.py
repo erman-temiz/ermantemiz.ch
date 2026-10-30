@@ -3,6 +3,9 @@
 # Jeder deutsche Text muss in index.html genau so vorkommen.
 
 T = [
+('<span>· Stellv. Leiter Logistik (Arbeitsvorbereitung &amp; Disposition)</span>',
+ '<span>· Deputy Head of Logistics (production planning &amp; scheduling)</span>',
+ '<span>· Lojistik Müdür Yardımcısı (iş hazırlığı ve malzeme planlaması)</span>'),
 ('<b>FERCHAU Engineering, Einsatz bei Rheinmetall</b> <span>· Fertigungsplanung und Arbeitsvorbereitung</span>',
  '<b>FERCHAU Engineering, assignment at Rheinmetall</b> <span>· Manufacturing and process planning</span>',
  '<b>FERCHAU Engineering, Rheinmetall görevlendirmesi</b> <span>· Üretim planlaması ve iş hazırlığı</span>'),
@@ -399,15 +402,9 @@ T = [
 ('<time>Anlagenbau</time>',
  '<time>Plant engineering</time>',
  '<time>Tesis mühendisliği</time>'),
-('<time>Fertigung</time>',
- '<time>Manufacturing</time>',
- '<time>Üretim</time>'),
 ('<span>· Projektleiter</span>',
  '<span>· Project manager</span>',
  '<span>· Proje yöneticisi</span>'),
-('<span>· Arbeitsvorbereitung &amp; Disposition</span>',
- '<span>· Work preparation &amp; scheduling</span>',
- '<span>· İş hazırlığı &amp; planlama</span>'),
 ('<span>· Produktionsplaner</span>',
  '<span>· Production planner</span>',
  '<span>· Üretim planlamacısı</span>'),
