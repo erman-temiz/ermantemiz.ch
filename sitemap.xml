@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://ermantemiz.ch/</loc><lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ermantemiz.ch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ermantemiz.ch/en/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ermantemiz.ch/tr/"/></url>
+  <url><loc>https://ermantemiz.ch/en/</loc><lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ermantemiz.ch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ermantemiz.ch/en/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ermantemiz.ch/tr/"/></url>
+  <url><loc>https://ermantemiz.ch/tr/</loc><lastmod>2026-10-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://ermantemiz.ch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ermantemiz.ch/en/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://ermantemiz.ch/tr/"/></url>
+</urlset>
