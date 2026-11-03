@@ -65,9 +65,9 @@ header .wrap{display:flex;align-items:center;gap:24px;padding-block:14px}
 .mono-mark::after{content:"";position:absolute;right:-1.5px;bottom:-1.5px;width:10px;height:10px;background:var(--signal)}
 .logo-img{width:40px;height:40px;display:block;flex:none;outline:1px solid var(--band-line)}
 .logo-text b{display:block;font-family:var(--display);font-weight:700;font-stretch:85%;font-size:1.05rem;letter-spacing:.01em;line-height:1.1}
-.logo-text span{display:block;font-family:var(--mono);font-size:.68rem;color:var(--band-muted);letter-spacing:.08em;text-transform:uppercase}
+.logo-text span{display:block;font-family:var(--mono);font-size:.68rem;color:var(--band-muted);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
 nav{display:flex;gap:22px}
-nav a{color:var(--band-muted);text-decoration:none;font-size:.88rem;font-weight:500}
+nav a{color:var(--band-muted);text-decoration:none;font-size:.88rem;font-weight:500;white-space:nowrap}
 nav a:hover{color:var(--band-ink)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;font-family:var(--body);font-weight:600;font-size:.94rem;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .15s,border-color .15s,color .15s;white-space:nowrap}
 .btn-signal{background:var(--signal);color:#1B1404}
@@ -77,7 +77,7 @@ nav a:hover{color:var(--band-ink)}
 .btn-dark{background:var(--ink);color:var(--surface)}
 .btn-dark:hover{background:var(--accent);color:var(--accent-ink)}
 header .btn{padding:9px 16px;font-size:.85rem}
-@media (max-width:900px){nav{display:none}}
+@media (max-width:1240px){nav{display:none}}
 @media (max-width:460px){header .btn{display:none}}
 .li-link{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid var(--band-line);color:var(--band-ink);text-decoration:none;font-size:.85rem;font-weight:600;white-space:nowrap;transition:border-color .15s}
 .li-link:hover{border-color:var(--band-ink)}
@@ -86,7 +86,8 @@ header .btn{padding:9px 16px;font-size:.85rem}
 .lang a + a{border-left:1px solid var(--band-line)}
 .lang a:hover{color:var(--band-ink)}
 .lang a[aria-current="page"]{background:var(--band-ink);color:var(--band)}
-@media (max-width:560px){.li-link{display:none}.logo-text span{display:none}}
+@media (max-width:560px){.li-link{display:none}}
+@media (max-width:760px){.logo-text span{display:none}}
 
 /* hero */
 .hero{background-color:var(--band);background-image:linear-gradient(90deg,rgba(8,30,37,.97) 0%,rgba(8,30,37,.9) 36%,rgba(8,30,37,.45) 62%,rgba(8,30,37,.08) 100%),url(img/hero-anlage.jpg);background-size:cover;background-position:right center;color:var(--band-ink);overflow:hidden}
@@ -256,7 +257,7 @@ footer{background:var(--surface);border-top:1px solid var(--line)}
   <div class="wrap">
     <a class="logo" href="#start" aria-label="Erman Temiz, zum Seitenanfang">
       <img class="logo-img" src="img/logo-et-160.png" width="40" height="40" alt="">
-      <span class="logo-text"><b>Erman Temiz</b><span>Projektleitung · Interim</span></span>
+      <span class="logo-text"><b>Erman Temiz</b><span>Projektleitung · Interim · Engineering</span></span>
     </a>
     <nav aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
@@ -674,7 +675,7 @@ footer{background:var(--surface);border-top:1px solid var(--line)}
   <div class="wrap legal">
     <div id="impressum">
       <h4>Impressum</h4>
-      <p>Erman Temiz<br>Projektleitung &amp; Engineering<br>Schweiz</p>
+      <p>Erman Temiz<br>Projektleitung · Interim · Engineering<br>Schweiz</p>
       <p>E-Mail: <a href="mailto:kontakt@ermantemiz.ch">kontakt@ermantemiz.ch</a></p>
       <p>Telefon: <a href="tel:+41766358114">+41 76 635 81 14</a></p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/erman-temiz/" target="_blank" rel="noopener">linkedin.com/in/erman-temiz</a></p>
