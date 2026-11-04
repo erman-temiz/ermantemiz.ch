@@ -3,15 +3,12 @@
 # Jeder deutsche Text muss in index.html genau so vorkommen.
 
 T = [
-('href="/Projektprofil_Erman_Temiz.pdf"',
- 'href="/Project_Profile_Erman_Temiz.pdf"',
- 'href="/Projektprofil_Erman_Temiz.pdf"'),
-('>Projektprofil_Erman_Temiz.pdf</a>',
- '>Project_Profile_Erman_Temiz.pdf</a>',
- '>Projektprofil_Erman_Temiz.pdf</a>'),
-('>Projektprofil (PDF) ↓</a>',
- '>Project profile (PDF) ↓</a>',
- '>Proje profili (PDF, Almanca) ↓</a>'),
+('<a class="btn btn-ghost" href="mailto:kontakt@ermantemiz.ch?subject=Anfrage%20Projektprofil%20%E2%80%93%20Erman%20Temiz&amp;body=Guten%20Tag%20Herr%20Temiz%0A%0Abitte%20senden%20Sie%20mir%20Ihr%20Projektprofil%20%28PDF%29.%0A%0AFirma%3A%0AName%3A%0AAnlass%20/%20Projekt%3A%0A%0AFreundliche%20Gr%C3%BCsse%0A" data-goatcounter-click="projektprofil-anfrage-hero">Projektprofil anfordern ✉</a>',
+ '<a class="btn btn-ghost" href="mailto:kontakt@ermantemiz.ch?subject=Request%3A%20project%20profile%20%E2%80%93%20Erman%20Temiz&amp;body=Hello%20Mr%20Temiz%2C%0A%0Aplease%20send%20me%20your%20project%20profile%20%28PDF%29.%0A%0ACompany%3A%0AName%3A%0AOccasion%20/%20project%3A%0A%0ABest%20regards%0A" data-goatcounter-click="projektprofil-anfrage-hero">Request project profile ✉</a>',
+ '<a class="btn btn-ghost" href="mailto:kontakt@ermantemiz.ch?subject=Proje%20profili%20talebi%20%E2%80%93%20Erman%20Temiz&amp;body=Merhaba%20Erman%20Bey%2C%0A%0Al%C3%BCtfen%20bana%20proje%20profilinizi%20%28PDF%2C%20%C4%B0ngilizce%29%20g%C3%B6nderin.%0A%0A%C5%9Eirket%3A%0AAd%20Soyad%3A%0AKonu%20/%20proje%3A%0A%0ASayg%C4%B1lar%C4%B1mla%0A" data-goatcounter-click="projektprofil-anfrage-hero">Proje profilini iste (İngilizce) ✉</a>'),
+('<div class="crow"><span class="k">Profil</span><span class="v"><a href="mailto:kontakt@ermantemiz.ch?subject=Anfrage%20Projektprofil%20%E2%80%93%20Erman%20Temiz&amp;body=Guten%20Tag%20Herr%20Temiz%0A%0Abitte%20senden%20Sie%20mir%20Ihr%20Projektprofil%20%28PDF%29.%0A%0AFirma%3A%0AName%3A%0AAnlass%20/%20Projekt%3A%0A%0AFreundliche%20Gr%C3%BCsse%0A" data-goatcounter-click="projektprofil-anfrage-kontakt">Projektprofil per E-Mail anfordern</a></span><a class="copy" href="mailto:kontakt@ermantemiz.ch?subject=Anfrage%20Projektprofil%20%E2%80%93%20Erman%20Temiz&amp;body=Guten%20Tag%20Herr%20Temiz%0A%0Abitte%20senden%20Sie%20mir%20Ihr%20Projektprofil%20%28PDF%29.%0A%0AFirma%3A%0AName%3A%0AAnlass%20/%20Projekt%3A%0A%0AFreundliche%20Gr%C3%BCsse%0A" data-goatcounter-click="projektprofil-anfrage-kontakt" style="text-decoration:none">Anfordern</a></div>',
+ '<div class="crow"><span class="k">Profile</span><span class="v"><a href="mailto:kontakt@ermantemiz.ch?subject=Request%3A%20project%20profile%20%E2%80%93%20Erman%20Temiz&amp;body=Hello%20Mr%20Temiz%2C%0A%0Aplease%20send%20me%20your%20project%20profile%20%28PDF%29.%0A%0ACompany%3A%0AName%3A%0AOccasion%20/%20project%3A%0A%0ABest%20regards%0A" data-goatcounter-click="projektprofil-anfrage-kontakt">Request project profile by email</a></span><a class="copy" href="mailto:kontakt@ermantemiz.ch?subject=Request%3A%20project%20profile%20%E2%80%93%20Erman%20Temiz&amp;body=Hello%20Mr%20Temiz%2C%0A%0Aplease%20send%20me%20your%20project%20profile%20%28PDF%29.%0A%0ACompany%3A%0AName%3A%0AOccasion%20/%20project%3A%0A%0ABest%20regards%0A" data-goatcounter-click="projektprofil-anfrage-kontakt" style="text-decoration:none">Request</a></div>',
+ '<div class="crow"><span class="k">Profil</span><span class="v"><a href="mailto:kontakt@ermantemiz.ch?subject=Proje%20profili%20talebi%20%E2%80%93%20Erman%20Temiz&amp;body=Merhaba%20Erman%20Bey%2C%0A%0Al%C3%BCtfen%20bana%20proje%20profilinizi%20%28PDF%2C%20%C4%B0ngilizce%29%20g%C3%B6nderin.%0A%0A%C5%9Eirket%3A%0AAd%20Soyad%3A%0AKonu%20/%20proje%3A%0A%0ASayg%C4%B1lar%C4%B1mla%0A" data-goatcounter-click="projektprofil-anfrage-kontakt">Proje profilini e-posta ile isteyin</a></span><a class="copy" href="mailto:kontakt@ermantemiz.ch?subject=Proje%20profili%20talebi%20%E2%80%93%20Erman%20Temiz&amp;body=Merhaba%20Erman%20Bey%2C%0A%0Al%C3%BCtfen%20bana%20proje%20profilinizi%20%28PDF%2C%20%C4%B0ngilizce%29%20g%C3%B6nderin.%0A%0A%C5%9Eirket%3A%0AAd%20Soyad%3A%0AKonu%20/%20proje%3A%0A%0ASayg%C4%B1lar%C4%B1mla%0A" data-goatcounter-click="projektprofil-anfrage-kontakt" style="text-decoration:none">İste</a></div>'),
 ('<span class="k">Profil</span>',
  '<span class="k">Profile</span>',
  '<span class="k">Profil</span>'),
