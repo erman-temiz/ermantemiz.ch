@@ -3,6 +3,12 @@
 # Jeder deutsche Text muss in index.html genau so vorkommen.
 
 T = [
+('>Projektprofil (PDF) ↓</a>',
+ '>Project profile (PDF, German) ↓</a>',
+ '>Proje profili (PDF, Almanca) ↓</a>'),
+('<span class="k">Profil</span>',
+ '<span class="k">Profile</span>',
+ '<span class="k">Profil</span>'),
 ('<b>ProMinent Dosiertechnik AG</b> <span>· Projektleiter Anlagenbau</span>',
  '<b>ProMinent Dosiertechnik AG</b> <span>· Project Manager, Plant Engineering</span>',
  '<b>ProMinent Dosiertechnik AG</b> <span>· Tesis Mühendisliği Proje Yöneticisi</span>'),
