@@ -23,6 +23,8 @@ for lang, idx in LANGS.items():
     s = s.replace('<html lang="de">', f'<html lang="{lang}">', 1)
     s = s.replace('<link rel="canonical" href="https://ermantemiz.ch/">',
                   f'<link rel="canonical" href="https://ermantemiz.ch/{lang}/">', 1)
+    s = s.replace('<meta property="og:url" content="https://ermantemiz.ch/">',
+                  f'<meta property="og:url" content="https://ermantemiz.ch/{lang}/">', 1)
     # aktive Sprache im Umschalter
     s = s.replace(' aria-current="page">DE</a>', '>DE</a>', 1)
     s = s.replace(f'hreflang="{lang}">{lang.upper()}</a>', f'hreflang="{lang}" aria-current="page">{lang.upper()}</a>', 1)

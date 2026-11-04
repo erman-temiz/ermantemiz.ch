@@ -3,6 +3,15 @@
 # Jeder deutsche Text muss in index.html genau so vorkommen.
 
 T = [
+('<meta property="og:locale" content="de_CH">',
+ '<meta property="og:locale" content="en_GB">',
+ '<meta property="og:locale" content="tr_TR">'),
+('content="Erman Temiz – Interim-Projektleitung für Anlagenbau und Industrie">',
+ 'content="Erman Temiz – Interim project management for plant engineering and industry">',
+ 'content="Erman Temiz – Tesis mühendisliği ve sanayi için geçici proje yönetimi">'),
+('<meta property="og:description" content="Projektleitung, Terminplanung und Qualität für Anlagenbau und Industrie – in der Deutschschweiz, Baden-Württemberg und Bayern. Struktur. Kommunikation. Verantwortung.">',
+ '<meta property="og:description" content="Project management, scheduling and quality for plant engineering and industry – in German-speaking Switzerland, Baden-Württemberg and Bavaria. Structure. Communication. Responsibility.">',
+ '<meta property="og:description" content="Tesis mühendisliği ve sanayi için proje yönetimi, termin planlaması ve kalite – İsviçre\'nin Almanca bölgesi, Baden-Württemberg ve Bavyera. Yapı. İletişim. Sorumluluk.">'),
 ('<span class="code">P-05 · LOGISTIK</span>',
  '<span class="code">P-05 · LOGISTICS</span>',
  '<span class="code">P-05 · LOJİSTİK</span>'),
