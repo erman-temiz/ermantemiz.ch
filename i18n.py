@@ -3,8 +3,14 @@
 # Jeder deutsche Text muss in index.html genau so vorkommen.
 
 T = [
+('href="/Projektprofil_Erman_Temiz.pdf"',
+ 'href="/Project_Profile_Erman_Temiz.pdf"',
+ 'href="/Projektprofil_Erman_Temiz.pdf"'),
+('>Projektprofil_Erman_Temiz.pdf</a>',
+ '>Project_Profile_Erman_Temiz.pdf</a>',
+ '>Projektprofil_Erman_Temiz.pdf</a>'),
 ('>Projektprofil (PDF) ↓</a>',
- '>Project profile (PDF, German) ↓</a>',
+ '>Project profile (PDF) ↓</a>',
  '>Proje profili (PDF, Almanca) ↓</a>'),
 ('<span class="k">Profil</span>',
  '<span class="k">Profile</span>',
