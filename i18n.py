@@ -3,6 +3,9 @@
 # Jeder deutsche Text muss in index.html genau so vorkommen.
 
 T = [
+('<h4>Mitgliedschaften</h4>',
+ '<h4>Memberships</h4>',
+ '<h4>Üyelikler</h4>'),
 ('<a class="btn btn-ghost" href="mailto:kontakt@ermantemiz.ch?subject=Anfrage%20Projektprofil%20%E2%80%93%20Erman%20Temiz&amp;body=Guten%20Tag%20Herr%20Temiz%0A%0Abitte%20senden%20Sie%20mir%20Ihr%20Projektprofil%20%28PDF%29.%0A%0AFirma%3A%0AName%3A%0AAnlass%20/%20Projekt%3A%0A%0AFreundliche%20Gr%C3%BCsse%0A" data-goatcounter-click="projektprofil-anfrage-hero">Projektprofil anfordern ✉</a>',
  '<a class="btn btn-ghost" href="mailto:kontakt@ermantemiz.ch?subject=Request%3A%20project%20profile%20%E2%80%93%20Erman%20Temiz&amp;body=Hello%20Mr%20Temiz%2C%0A%0Aplease%20send%20me%20your%20project%20profile%20%28PDF%29.%0A%0ACompany%3A%0AName%3A%0AOccasion%20/%20project%3A%0A%0ABest%20regards%0A" data-goatcounter-click="projektprofil-anfrage-hero">Request project profile ✉</a>',
  '<a class="btn btn-ghost" href="mailto:kontakt@ermantemiz.ch?subject=Proje%20profili%20talebi%20%E2%80%93%20Erman%20Temiz&amp;body=Merhaba%20Erman%20Bey%2C%0A%0Al%C3%BCtfen%20bana%20proje%20profilinizi%20%28PDF%2C%20%C4%B0ngilizce%29%20g%C3%B6nderin.%0A%0A%C5%9Eirket%3A%0AAd%20Soyad%3A%0AKonu%20/%20proje%3A%0A%0ASayg%C4%B1lar%C4%B1mla%0A" data-goatcounter-click="projektprofil-anfrage-hero">Proje profilini iste (İngilizce) ✉</a>'),
@@ -540,9 +543,9 @@ T = [
 ('Ich bin Wirtschaftsingenieur und habe in den letzten zehn Jahren Projekte im Anlagenbau geleitet, Qualität in Automotive-Serienprojekten verantwortet und Produktionen geplant. Diese Mischung aus Technik und Betriebswirtschaft ist meine Stärke.',
  'I am an industrial engineer and over the past ten years I have led plant engineering projects, been responsible for quality in automotive series projects and planned production. This mix of engineering and business is my strength.',
  'Endüstri mühendisiyim. Son on yılda tesis mühendisliği projeleri yönettim, otomotiv seri projelerinde kaliteden sorumlu oldum ve üretim planladım. Teknik ile işletmeyi bir araya getiren bu birikim benim gücüm.'),
-('Ich arbeite strukturiert und lösungsorientiert, spreche die Sprache von Ingenieuren und Geschäftsleitung und bringe beide an einen Tisch. Derzeit schliesse ich berufsbegleitend meinen MBA mit Schwerpunkt Strategisches Management ab. Ich bin Mitglied bei Swiss Engineering STV, dem Berufsverband der Ingenieure und Architekten in der Schweiz, sowie beim Project Management Institute (PMI).',
- 'I work in a structured, solution-oriented way, speak the language of both engineers and management and bring them to the same table. I am currently completing my part-time MBA with a focus on strategic management. I am a member of Swiss Engineering STV, the Swiss professional association of engineers and architects, and of the Project Management Institute (PMI).',
- "Yapılandırılmış ve çözüm odaklı çalışırım; hem mühendislerin hem de yönetimin dilini konuşur, ikisini aynı masada buluştururum. Şu anda işle birlikte yürüttüğüm, stratejik yönetim odaklı MBA programımı tamamlıyorum. İsviçre'deki mühendis ve mimarların meslek birliği Swiss Engineering STV'nin ve Project Management Institute'un (PMI) üyesiyim."),
+('Ich arbeite strukturiert und lösungsorientiert, spreche die Sprache von Ingenieuren und Geschäftsleitung und bringe beide an einen Tisch. Derzeit schliesse ich berufsbegleitend meinen MBA mit Schwerpunkt Strategisches Management ab.',
+ 'I work in a structured, solution-oriented way, speak the language of both engineers and management and bring them to the same table. I am currently completing my part-time MBA with a focus on strategic management.',
+ "Yapılandırılmış ve çözüm odaklı çalışırım; hem mühendislerin hem de yönetimin dilini konuşur, ikisini aynı masada buluştururum. Şu anda işle birlikte yürüttüğüm, stratejik yönetim odaklı MBA programımı tamamlıyorum."),
 ('<span>· Produktionsplaner</span>',
  '<span>· Production planner</span>',
  '<span>· Üretim planlamacısı</span>'),
