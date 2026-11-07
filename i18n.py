@@ -3,6 +3,9 @@
 # Jeder deutsche Text muss in index.html genau so vorkommen.
 
 T = [
+('<div><b>Mitglied</b><span>Swiss Engineering STV · PMI · GPM</span></div>',
+ '<div><b>Member</b><span>Swiss Engineering STV · PMI · GPM</span></div>',
+ '<div><b>Üyelik</b><span>Swiss Engineering STV · PMI · GPM</span></div>'),
 ('<h4>Mitgliedschaften</h4>',
  '<h4>Memberships</h4>',
  '<h4>Üyelikler</h4>'),
