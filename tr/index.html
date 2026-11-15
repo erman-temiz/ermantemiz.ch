@@ -25,6 +25,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="../fonts/fonts.css">
+<script>try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
 /* Layout: engineering consultancy. A deep petrol hero carrying a live P&ID line drawing; below, calm white sections on a strict 12-col grid, hairline rules, mono tag codes as in plant documentation. */
 :root{
@@ -97,6 +98,12 @@ header .btn{padding:9px 16px;font-size:.85rem}
 .lang a + a{border-left:1px solid var(--band-line)}
 .lang a:hover{color:var(--band-ink)}
 .lang a[aria-current="page"]{background:var(--band-ink);color:var(--band)}
+.theme-btn{display:inline-grid;place-items:center;width:34px;height:34px;padding:0;border:1px solid var(--band-line);background:transparent;color:var(--band-ink);cursor:pointer;transition:border-color .15s;flex:none}
+.theme-btn:hover{border-color:var(--band-ink)}
+.theme-btn svg{width:16px;height:16px;display:block}
+.theme-btn .i-sun{display:none}
+:root[data-theme="dark"] .theme-btn .i-sun{display:block}:root[data-theme="dark"] .theme-btn .i-moon{display:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .theme-btn .i-sun{display:block}:root:not([data-theme="light"]) .theme-btn .i-moon{display:none}}
 @media (max-width:560px){.li-link{display:none}}
 @media (max-width:760px){.logo-text span{display:none}}
 
@@ -281,6 +288,7 @@ footer{background:var(--surface);border-top:1px solid var(--line)}
       <a href="#faq">SSS</a>
     </nav>
     <div class="lang" role="group" aria-label="Dil"><a href="https://ermantemiz.ch/" lang="de" hreflang="de">DE</a><a href="https://ermantemiz.ch/en/" lang="en" hreflang="en">EN</a><a href="https://ermantemiz.ch/tr/" lang="tr" hreflang="tr" aria-current="page">TR</a></div>
+    <button class="theme-btn" type="button" id="themeToggle" aria-label="Açık/koyu mod değiştir" title="Açık/koyu mod değiştir" hidden><svg class="i-moon" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 10.2A6 6 0 0 1 5.8 2.5a6 6 0 1 0 7.7 7.7z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg><svg class="i-sun" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6 13 13M3 13l1.4-1.4M11.6 4.4 13 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
     <a class="li-link" href="https://www.linkedin.com/in/erman-temiz/" target="_blank" rel="noopener" aria-label="Erman Temiz LinkedIn profili (yeni sekmede açılır)">LinkedIn<svg viewBox="0 0 12 12" width="11" height="11" aria-hidden="true"><path d="M4 2h6v6M10 2 3 9" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
     <a class="btn btn-signal" href="#kontakt">Ön görüşme</a>
   </div>
@@ -726,6 +734,21 @@ document.querySelectorAll('[data-copy]').forEach(function(b){
     try{navigator.clipboard.writeText(el.textContent).then(function(){note.textContent='Kopyalandı.';},fb);}catch(e){fb();}
   });
 });
+</script>
+<script>
+(function(){
+  var b=document.getElementById('themeToggle');if(!b)return;
+  var r=document.documentElement,mq=matchMedia('(prefers-color-scheme: dark)');
+  function cur(){return r.dataset.theme||(mq.matches?'dark':'light')}
+  function sync(){b.setAttribute('aria-pressed',cur()==='dark'?'true':'false')}
+  b.hidden=false;sync();
+  b.addEventListener('click',function(){
+    var n=cur()==='dark'?'light':'dark';r.dataset.theme=n;
+    try{localStorage.setItem('theme',n)}catch(e){}
+    sync();
+  });
+  mq.addEventListener&&mq.addEventListener('change',sync);
+})();
 </script>
 <script data-goatcounter="https://ermantemiz.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
