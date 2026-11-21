@@ -37,7 +37,9 @@ jobs:
           set net:max-retries 3
           set net:timeout 30
           open --env-password -u "$FTP_USERNAME" "ftp://$FTP_SERVER"
-          mirror --reverse --delete --verbose --parallel=2 --exclude-glob .git* --exclude-glob .github/ --exclude-glob __pycache__/ --exclude-glob build.py --exclude-glob i18n.py --exclude-glob README.md --exclude-glob CNAME --exclude-glob deploy.lftp ./ /ermantemiz/
+          rm -r -f /ermantemiz/.git
+          mirror --reverse --verbose --parallel=2 --exclude ^\\.git/ --exclude ^\\.github/ --exclude ^\\.gitignore\$ --exclude __pycache__/ --exclude ^build\\.py\$ --exclude ^i18n\\.py\$ --exclude ^README\\.md\$ --exclude ^CNAME\$ --exclude ^deploy\\.lftp\$ ./ /ermantemiz/
+          cls -1a /ermantemiz/
           bye
           SCRIPT
           lftp -f deploy.lftp
