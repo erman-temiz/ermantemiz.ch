@@ -7,7 +7,7 @@ name: Deploy zu green.ch
 
 on:
   push:
-    branches: [main, hosting-green]
+    branches: [main]
   workflow_dispatch:
 
 concurrency:
