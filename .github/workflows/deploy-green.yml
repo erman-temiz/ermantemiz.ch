@@ -1,0 +1,39 @@
+# Lädt die Website bei jeder Änderung auf main automatisch per FTPS zu green.ch hoch.
+# Benötigte Secrets (GitHub → Settings → Secrets and variables → Actions):
+#   FTP_SERVER   – FTP-Servername von Green
+#   FTP_USERNAME – FTP-Benutzername
+#   FTP_PASSWORD – FTP-Passwort
+name: Deploy zu green.ch
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-green
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Upload per FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          server-dir: /ermantemiz/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            **/__pycache__/**
+            build.py
+            i18n.py
+            README.md
+            CNAME
