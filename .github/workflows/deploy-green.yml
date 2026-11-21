@@ -1,7 +1,7 @@
-# Lädt die Website bei jeder Änderung auf main automatisch per FTPS zu green.ch hoch.
+# Lädt die Website bei jeder Änderung auf main automatisch per FTPS (verschlüsselt) zu green.ch hoch.
 # Benötigte Secrets (GitHub → Settings → Secrets and variables → Actions):
-#   FTP_SERVER   – FTP-Servername von Green
-#   FTP_USERNAME – FTP-Benutzername
+#   FTP_SERVER   – FTP-Servername von Green (web61.servicehoster.ch)
+#   FTP_USERNAME – FTP-Benutzername (h242637_github)
 #   FTP_PASSWORD – FTP-Passwort
 name: Deploy zu green.ch
 
@@ -20,20 +20,30 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: lftp installieren
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
       - name: Upload per FTPS
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          server-dir: /ermantemiz/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            .github/**
-            **/__pycache__/**
-            build.py
-            i18n.py
-            README.md
-            CNAME
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -e "
+            set ftp:ssl-force true;
+            set ftp:ssl-protect-data true;
+            set ssl:verify-certificate true;
+            set ftp:passive-mode true;
+            set net:max-retries 3;
+            set net:timeout 30;
+            mirror --reverse --delete --verbose --parallel=2 \
+              --exclude-glob .git* \
+              --exclude-glob .github/ \
+              --exclude-glob __pycache__/ \
+              --exclude-glob build.py \
+              --exclude-glob i18n.py \
+              --exclude-glob README.md \
+              --exclude-glob CNAME \
+              ./ /ermantemiz/;
+            bye
+          " -u "$FTP_USERNAME","$FTP_PASSWORD" "$FTP_SERVER"
