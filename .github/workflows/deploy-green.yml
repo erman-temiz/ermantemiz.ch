@@ -1,0 +1,45 @@
+# Lädt die Website bei jeder Änderung auf main automatisch per FTPS (verschlüsselt) zu green.ch hoch.
+# Benötigte Secrets (GitHub → Settings → Secrets and variables → Actions):
+#   FTP_SERVER   – FTP-Servername von Green (web61.servicehoster.ch)
+#   FTP_USERNAME – FTP-Benutzername (h242637_github)
+#   FTP_PASSWORD – FTP-Passwort
+name: Deploy zu green.ch
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-green
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: lftp installieren
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Upload per FTPS
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          cat > deploy.lftp <<SCRIPT
+          set ftp:ssl-force true
+          set ftp:ssl-protect-data true
+          set ssl:verify-certificate true
+          set ftp:passive-mode true
+          set net:max-retries 3
+          set net:timeout 30
+          open --env-password -u "$FTP_USERNAME" "ftp://$FTP_SERVER"
+          rm -r -f /ermantemiz/.git
+          mirror --reverse --verbose --parallel=2 --exclude ^\\.git/ --exclude ^\\.github/ --exclude ^\\.gitignore\$ --exclude __pycache__/ --exclude ^build\\.py\$ --exclude ^i18n\\.py\$ --exclude ^README\\.md\$ --exclude ^CNAME\$ --exclude ^deploy\\.lftp\$ ./ /ermantemiz/
+          cls -1a /ermantemiz/
+          bye
+          SCRIPT
+          lftp -f deploy.lftp
